@@ -1,0 +1,332 @@
+[
+  {
+    "id": 1,
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Emma",
+      "last": "Lampi"
+    },
+    "location": {
+      "street": {
+        "number": 2304,
+        "name": "Siilitie"
+      },
+      "city": "Hausjärvi",
+      "state": "Uusimaa",
+      "country": "Finland",
+      "postcode": 98555,
+      "timezone": {
+        "offset": "+8:00",
+        "description": "Beijing, Perth, Singapore, Hong Kong"
+      }
+    },
+    "email": "emma.lampi@example.com",
+    "dob": {
+      "date": "2001-03-08T01:39:19.084Z",
+      "age": 25
+    },
+    "phone": "02-689-410",
+    "cell": "043-730-12-94",
+    "picture": "users/user-1.jpg",
+    "hobbies": ["Travel", "Photography", "Hiking", "Reading", "Cooking", "Music"],
+    "details": "Emma lives in a small town in southern Finland. She works as a freelance photographer, spends weekends hiking and is learning to cook dishes from different countries."
+  },
+  {
+    "id": 2,
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Liam",
+      "last": "Becker"
+    },
+    "location": {
+      "street": {
+        "number": 118,
+        "name": "Lindenstraße"
+      },
+      "city": "Leipzig",
+      "state": "Saxony",
+      "country": "Germany",
+      "postcode": 4109,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "liam.becker@example.com",
+    "dob": {
+      "date": "1992-05-14T09:30:00.000Z",
+      "age": 34
+    },
+    "phone": "0341-5550142",
+    "cell": "0151-55501423",
+    "picture": "users/user-2.jpg",
+    "hobbies": ["Cycling", "Chess", "Cooking"],
+    "details": "Liam works as a backend developer and cycles to the office every day. At weekends he plays chess in a local club."
+  },
+  {
+    "id": 3,
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Sofia",
+      "last": "Rossi"
+    },
+    "location": {
+      "street": {
+        "number": 45,
+        "name": "Via Roma"
+      },
+      "city": "Bologna",
+      "state": "Emilia-Romagna",
+      "country": "Italy",
+      "postcode": 40121,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "sofia.rossi@example.com",
+    "dob": {
+      "date": "2009-02-21T09:30:00.000Z",
+      "age": 17
+    },
+    "phone": "051-5550178",
+    "cell": "320-5550179",
+    "picture": "users/user-3.jpg",
+    "hobbies": ["Drawing", "Dancing", "Music"],
+    "details": "Sofia is still at school and dreams of becoming an illustrator. She draws comics for her school magazine."
+  },
+  {
+    "id": 4,
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Noah",
+      "last": "Dubois"
+    },
+    "location": {
+      "street": {
+        "number": 7,
+        "name": "Rue des Lilas"
+      },
+      "city": "Lyon",
+      "state": "Auvergne-Rhône-Alpes",
+      "country": "France",
+      "postcode": 69003,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "noah.dubois@example.com",
+    "dob": {
+      "date": "1974-07-30T09:30:00.000Z",
+      "age": 52
+    },
+    "phone": "04-78-55-01-33",
+    "cell": "06-12-55-01-34",
+    "picture": "users/user-4.jpg",
+    "hobbies": ["Fishing", "Wine tasting", "History", "Gardening"],
+    "details": "Noah is an architect who restores old buildings. In his free time he fishes and grows vegetables in the garden."
+  },
+  {
+    "id": 5,
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Olivia",
+      "last": "Kowalska"
+    },
+    "location": {
+      "street": {
+        "number": 23,
+        "name": "ul. Długa"
+      },
+      "city": "Kraków",
+      "state": "Lesser Poland",
+      "country": "Poland",
+      "postcode": 31147,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "olivia.kowalska@example.com",
+    "dob": {
+      "date": "1997-01-09T09:30:00.000Z",
+      "age": 29
+    },
+    "phone": "12-555-01-45",
+    "cell": "501-550-145",
+    "picture": "users/user-5.jpg",
+    "hobbies": ["Running", "Photography", "Travel"],
+    "details": "Olivia is a UX designer. She has run three marathons and keeps a travel blog with her own photos."
+  },
+  {
+    "id": 6,
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Mateo",
+      "last": "García"
+    },
+    "location": {
+      "street": {
+        "number": 92,
+        "name": "Calle Mayor"
+      },
+      "city": "Valencia",
+      "state": "Valencian Community",
+      "country": "Spain",
+      "postcode": 46001,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "mateo.garcía@example.com",
+    "dob": {
+      "date": "2010-06-03T09:30:00.000Z",
+      "age": 16
+    },
+    "phone": "961-550-166",
+    "cell": "612-550-167",
+    "picture": "users/user-6.jpg",
+    "hobbies": ["Football", "Video games"],
+    "details": "Mateo plays in a youth football team and likes to make small games in his spare time."
+  },
+  {
+    "id": 7,
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Isabella",
+      "last": "Silva"
+    },
+    "location": {
+      "street": {
+        "number": 310,
+        "name": "Rua das Flores"
+      },
+      "city": "Curitiba",
+      "state": "Paraná",
+      "country": "Brazil",
+      "postcode": 80010,
+      "timezone": {
+        "offset": "-3:00",
+        "description": "Brazil, Buenos Aires, Georgetown"
+      }
+    },
+    "email": "isabella.silva@example.com",
+    "dob": {
+      "date": "1981-04-17T09:30:00.000Z",
+      "age": 45
+    },
+    "phone": "(41) 5550-1789",
+    "cell": "(41) 95550-1790",
+    "picture": "users/user-7.jpg",
+    "hobbies": ["Painting", "Yoga", "Reading", "Cooking"],
+    "details": "Isabella teaches art at a university and exhibits her paintings in local galleries."
+  },
+  {
+    "id": 8,
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Ethan",
+      "last": "Nielsen"
+    },
+    "location": {
+      "street": {
+        "number": 14,
+        "name": "Vestergade"
+      },
+      "city": "Aarhus",
+      "state": "Central Denmark",
+      "country": "Denmark",
+      "postcode": 8000,
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      }
+    },
+    "email": "ethan.nielsen@example.com",
+    "dob": {
+      "date": "2008-02-10T09:30:00.000Z",
+      "age": 18
+    },
+    "phone": "86-55-01-92",
+    "cell": "20-55-01-93",
+    "picture": "users/user-8.jpg",
+    "hobbies": ["Surfing", "Music", "Photography"],
+    "details": "Ethan just finished school and is going to study marine biology."
+  },
+  {
+    "id": 9,
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Maria",
+      "last": "Ivanenko"
+    },
+    "location": {
+      "street": {
+        "number": 5,
+        "name": "вул. Шевченка"
+      },
+      "city": "Chernivtsi",
+      "state": "Chernivtsi Oblast",
+      "country": "Ukraine",
+      "postcode": 58000,
+      "timezone": {
+        "offset": "+2:00",
+        "description": "Helsinki, Kyiv, Riga, Sofia"
+      }
+    },
+    "email": "maria.ivanenko@example.com",
+    "dob": {
+      "date": "1965-03-12T09:30:00.000Z",
+      "age": 61
+    },
+    "phone": "(037) 555-01-21",
+    "cell": "(050) 555-01-22",
+    "picture": "users/user-9.jpg",
+    "hobbies": ["Gardening", "Knitting", "Reading"],
+    "details": "Maria is a retired teacher of literature. She grows roses and knits warm scarves for her grandchildren."
+  },
+  {
+    "id": 10,
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Oleksandr",
+      "last": "Melnyk"
+    },
+    "location": {
+      "street": {
+        "number": 28,
+        "name": "вул. Університетська"
+      },
+      "city": "Lviv",
+      "state": "Lviv Oblast",
+      "country": "Ukraine",
+      "postcode": 79000,
+      "timezone": {
+        "offset": "+2:00",
+        "description": "Helsinki, Kyiv, Riga, Sofia"
+      }
+    },
+    "email": "oleksandr.melnyk@example.com",
+    "dob": {
+      "date": "1988-09-27T09:30:00.000Z",
+      "age": 38
+    },
+    "phone": "(032) 555-01-31",
+    "cell": "(067) 555-01-32",
+    "picture": "users/user-10.jpg",
+    "hobbies": ["Hiking", "Guitar", "Football", "Travel"],
+    "details": "Oleksandr is a project manager in an IT company. He plays the guitar and goes hiking in the Carpathians."
+  }
+]
