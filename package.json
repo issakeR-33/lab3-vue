@@ -13,7 +13,11 @@
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "test": "vitest run",
+    "lint:check": "oxlint . && eslint .",
+    "format:check": "prettier --check --experimental-cli src/",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.5.42"
@@ -31,6 +35,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "~1.82.0",
     "eslint-plugin-vue": "~10.11.0",
+    "gh-pages": "^6.3.0",
     "jiti": "^2.7.0",
     "jsdom": "^30.0.1",
     "npm-run-all2": "^9.0.3",
