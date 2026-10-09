@@ -18,8 +18,18 @@ export default defineConfigWithVueTs(
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
-  ...pluginVue.configs['flat/essential'],
+  // flat/recommended відповідає style guide Vue (категорії A, B, C)
+  ...pluginVue.configs['flat/recommended'],
   vueTsConfigs.recommended,
+
+  {
+    name: 'app/vue-style-guide',
+    files: ['**/*.vue'],
+    rules: {
+      // Users.vue: назву компонента задано умовою лабораторної роботи
+      'vue/multi-word-component-names': ['error', { ignores: ['Users'] }],
+    },
+  },
 
   {
     ...pluginVitest.configs.recommended,
