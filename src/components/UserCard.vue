@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import userData from '../data/user.json'
 import type { User } from '../types/user'
 
-const user = userData as User
+const props = defineProps<{ user: User }>()
 
 const isDetailsVisible = ref(false)
 
-const fullName = computed(() => `${user.name.title}. ${user.name.first} ${user.name.last}`)
-const gender = computed(() => (user.gender === 'female' ? 'Female' : 'Male'))
-const birthDate = computed(() => new Date(user.dob.date).toLocaleDateString('uk-UA'))
+const fullName = computed(
+  () => `${props.user.name.title}. ${props.user.name.first} ${props.user.name.last}`,
+)
+const gender = computed(() => (props.user.gender === 'female' ? 'Female' : 'Male'))
+const birthDate = computed(() => new Date(props.user.dob.date).toLocaleDateString('uk-UA'))
 const shortAddress = computed(
-  () => `${user.location.city}, ${user.location.state}, ${user.location.country}`,
+  () => `${props.user.location.city}, ${props.user.location.state}, ${props.user.location.country}`,
 )
 
-const age = computed(() => user.dob.age)
+const age = computed(() => props.user.dob.age)
+const photoUrl = computed(() => `${import.meta.env.BASE_URL}${props.user.picture}`)
 // Колір картки залежить від віку: до 18, 18–30, 31–50, понад 50
 const ageClasses = computed(() => ({
   minor: age.value < 18,
@@ -27,11 +29,7 @@ const ageClasses = computed(() => ({
 <template>
   <article class="user-card" :class="ageClasses">
     <aside class="user-card__side">
-      <img
-        class="user-card__photo"
-        :src="user.picture"
-        :alt="`${user.name.first} ${user.name.last}`"
-      />
+      <img class="user-card__photo" :src="photoUrl" :alt="`${user.name.first} ${user.name.last}`" />
       <h2 class="user-card__name">{{ fullName }}</h2>
       <p class="user-card__meta">
         {{ gender }}
@@ -153,7 +151,7 @@ const ageClasses = computed(() => ({
 .user-card__photo {
   display: block;
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 12px;
