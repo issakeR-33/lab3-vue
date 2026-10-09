@@ -25,4 +25,6 @@ export interface User {
   phone: string
   cell: string
   picture: string
+  hobbies: string[]
+  details: string
 }

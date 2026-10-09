@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import userData from '../data/user.json'
 import type { User } from '../types/user'
 
 const user = userData as User
+
+const isDetailsVisible = ref(false)
 
 const fullName = computed(() => `${user.name.title}. ${user.name.first} ${user.name.last}`)
 const gender = computed(() => (user.gender === 'female' ? 'Female' : 'Male'))
@@ -11,10 +13,19 @@ const birthDate = computed(() => new Date(user.dob.date).toLocaleDateString('uk-
 const shortAddress = computed(
   () => `${user.location.city}, ${user.location.state}, ${user.location.country}`,
 )
+
+const age = computed(() => user.dob.age)
+// Колір картки залежить від віку: до 18, 18–30, 31–50, понад 50
+const ageClasses = computed(() => ({
+  minor: age.value < 18,
+  young: age.value >= 18 && age.value <= 30,
+  adult: age.value >= 31 && age.value <= 50,
+  senior: age.value > 50,
+}))
 </script>
 
 <template>
-  <article class="user-card">
+  <article class="user-card" :class="ageClasses">
     <aside class="user-card__side">
       <img
         class="user-card__photo"
@@ -22,7 +33,10 @@ const shortAddress = computed(
         :alt="`${user.name.first} ${user.name.last}`"
       />
       <h2 class="user-card__name">{{ fullName }}</h2>
-      <p class="user-card__meta">{{ gender }} · {{ user.dob.age }} years</p>
+      <p class="user-card__meta">
+        {{ gender }}
+        <span v-if="age > 18"> · {{ age }} years</span>
+      </p>
 
       <ul class="user-card__contacts">
         <li>{{ shortAddress }}</li>
@@ -33,6 +47,22 @@ const shortAddress = computed(
     </aside>
 
     <section class="user-card__main">
+      <button
+        class="about-toggle"
+        type="button"
+        :aria-expanded="isDetailsVisible"
+        @click="isDetailsVisible = !isDetailsVisible"
+      >
+        <span>About me</span>
+        <span
+          class="about-toggle__arrow"
+          :class="{ 'about-toggle__arrow--open': isDetailsVisible }"
+        >
+          ▾
+        </span>
+      </button>
+      <p v-show="isDetailsVisible" class="about-text">{{ user.details }}</p>
+
       <div class="info-block">
         <h3 class="info-block__title">Personal Information</h3>
         <dl class="info-list">
@@ -41,7 +71,10 @@ const shortAddress = computed(
           <dt>Gender</dt>
           <dd>{{ gender }}</dd>
           <dt>Date of birth</dt>
-          <dd>{{ birthDate }} (age {{ user.dob.age }})</dd>
+          <dd>
+            {{ birthDate }}
+            <span v-if="age > 18">(age {{ age }})</span>
+          </dd>
           <dt>Email</dt>
           <dd>{{ user.email }}</dd>
           <dt>Phone</dt>
@@ -68,20 +101,53 @@ const shortAddress = computed(
           <dd>{{ user.location.timezone.offset }} ({{ user.location.timezone.description }})</dd>
         </dl>
       </div>
+
+      <div class="info-block">
+        <h3 class="info-block__title">Hobbies</h3>
+        <ul class="hobbies">
+          <li v-for="hobby in user.hobbies" :key="hobby" class="hobbies__item">
+            {{ hobby }}
+          </li>
+        </ul>
+      </div>
     </section>
   </article>
 </template>
 
 <style scoped>
 .user-card {
+  --card-accent: var(--color-accent);
+
   display: grid;
   grid-template-columns: minmax(240px, 1fr) 2fr;
   gap: 2rem;
   padding: 1.5rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-top: 6px solid var(--card-accent);
   border-radius: 16px;
   box-shadow: 0 8px 24px rgb(31 42 68 / 6%);
+}
+
+/* Кольори за віком */
+.user-card.minor {
+  --card-accent: #e8590c;
+  background: #fff6ef;
+}
+
+.user-card.young {
+  --card-accent: #2f9e44;
+  background: #f2fbf4;
+}
+
+.user-card.adult {
+  --card-accent: #3b6fe0;
+  background: #f3f7ff;
+}
+
+.user-card.senior {
+  --card-accent: #7048e8;
+  background: #f7f3ff;
 }
 
 .user-card__photo {
@@ -115,14 +181,41 @@ const shortAddress = computed(
   margin-top: 0.4rem;
 }
 
-.info-block {
-  padding: 1rem 1.25rem;
+.about-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  background: rgb(255 255 255 / 70%);
   border: 1px solid var(--color-border);
   border-radius: 12px;
+  cursor: pointer;
 }
 
-.info-block + .info-block {
+.about-toggle__arrow {
+  transition: transform 0.2s;
+}
+
+.about-toggle__arrow--open {
+  transform: rotate(180deg);
+}
+
+.about-text {
+  margin: 0.75rem 0 0;
+  padding: 0 0.25rem;
+  color: var(--color-muted);
+}
+
+.info-block {
   margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgb(255 255 255 / 70%);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
 }
 
 .info-block__title {
@@ -143,6 +236,24 @@ const shortAddress = computed(
 
 .info-list dd {
   margin: 0;
+}
+
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hobbies__item {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--card-accent);
+  background: rgb(255 255 255 / 80%);
+  border: 1px solid var(--card-accent);
+  border-radius: 999px;
 }
 
 @media (max-width: 720px) {
